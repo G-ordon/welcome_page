@@ -52,7 +52,15 @@ defmodule RumblWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {RumblWeb.Layouts, :app}
+        root: "lib/rumbl_web/templates", namespace: RumblWeb
+
+        import Phoenix.Controller,
+                only: [get_flash: 1, get_flash: 2, view_module: 1]
+
+                use Phoenix.HTML
+                import RumblWeb.ErrorHelpers
+                import RumblWeb.Gettext
+                alias RumblWeb.Router.Helpers, as: Routes
 
       unquote(html_helpers())
     end

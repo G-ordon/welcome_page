@@ -1,15 +1,15 @@
 defmodule RumblWeb.PageController do
   use RumblWeb, :controller
 
+  alias Rumbl.Accounts
 
-
-  def home(conn, _params) do
-    # The home page is often custom made,
-    # so skip the default app layout.
-    render(conn, :home, layout: false)
-  end
   def index(conn, _params) do
-    render(conn, "index.html")
+    users = Accounts.list_users()
+    render(conn, "index.html", users: users)
+  end
+  def show(conn, %{"id" => id}) do
+    user = Accounts.get_user(id)
+    render(conn, "show.html", user: user)
   end
 
 end
