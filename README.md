@@ -1,4 +1,4 @@
-# Rumbl
+# Welcome_Page
 
 To start your Phoenix server:
 
