@@ -19,7 +19,7 @@ defmodule RumblWeb.Router do
 
     get "/users", PageController, :index
     get "users/:id", PageController, :show
-    get "/", PageController, :index
+    get "/", PageController, :home
 
   end
 
